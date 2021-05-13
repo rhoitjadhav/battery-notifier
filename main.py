@@ -13,7 +13,7 @@ low_battery_message = 'Rohit, plugged in the power'
 high_battery_message = 'Rohit, remove the power plug'
 low_battery_icon = 'battery-low'
 high_battery_icon = 'battery-full'
-low_level_percentage = 60
+low_level_percentage = 40
 high_level_percentage = 80
 
 # BatteryNotifier instance

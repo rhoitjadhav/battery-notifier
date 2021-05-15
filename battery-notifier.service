@@ -1,0 +1,5 @@
+[Unit]
+Description=Battery Low/High Percentage Notifier
+
+[Service]
+Restart=always

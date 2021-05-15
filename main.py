@@ -35,6 +35,7 @@ low_battery_thread.start()
 high_battery_thread.start()
 
 try:
+    print("Battery Notifier service is started!")
     while True:
         time.sleep(5)
 

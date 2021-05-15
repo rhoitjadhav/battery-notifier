@@ -9,8 +9,11 @@ sudo apt install python3
 # dbus-python package dependencies
 sudo apt install build-essential libpython3-dev libdbus-1-dev libdbus-glib-1-dev libgirepository1.0-dev
 
-# Install psutil
-sudo apt install python3-psutil
+# Install pipenv
+pip3 install pipenv
 
-# Install notify2
-sudo apt install python3-notify2
+# Source .profile file
+source ~/.profile
+
+# Create virtual environment using pipenv and install dependencies
+pipenv install

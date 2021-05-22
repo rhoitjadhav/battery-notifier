@@ -1,5 +1,7 @@
+# Packages
 import time
 
+# Modules
 from battery import Battery
 from notifier import Notifier
 
@@ -24,7 +26,6 @@ class BatteryNotifier:
         self._high_battery_icon = high_battery_icon
 
         self._battery = Battery()
-        self._notifier = Notifier(self._app_name)
 
     def check_for_low_battery(self, low_level: int = 40) -> None:
         """
@@ -33,18 +34,25 @@ class BatteryNotifier:
             low_level: battery percentage number
         """
         low_battery_flag = False
+        notifier = Notifier(self._app_name,
+                            self._low_battery_summary,
+                            self._low_battery_message,
+                            self._low_battery_icon)
+
         try:
             while True:
                 percentage = self._battery.get_percentage()
                 plugged = self._battery.is_plugged()
 
-                if (percentage <= low_level) and (plugged is False) and (low_battery_flag is False):
-                    self._notifier.show(self._low_battery_summary,
-                                        self._low_battery_message,
-                                        self._low_battery_icon)
-                    low_battery_flag = True
+                if percentage <= low_level:
+                    if plugged and low_battery_flag:
+                        notifier.close()
+                        low_battery_flag = False
 
-                if percentage > low_level:
+                    if plugged is False and low_battery_flag is False:
+                        notifier.show()
+                        low_battery_flag = True
+                else:
                     low_battery_flag = False
 
                 time.sleep(3)
@@ -59,18 +67,26 @@ class BatteryNotifier:
             high_level: battery percentage number
         """
         high_battery_flag = False
+        notifier = Notifier(self._app_name,
+                            self._high_battery_summary,
+                            self._high_battery_message,
+                            self._high_battery_icon)
+
         try:
             while True:
                 percentage = self._battery.get_percentage()
                 plugged = self._battery.is_plugged()
 
-                if (percentage >= high_level) and plugged and (high_battery_flag is False):
-                    self._notifier.show(self._high_battery_summary,
-                                        self._high_battery_message,
-                                        self._high_battery_icon)
-                    high_battery_flag = True
+                if percentage >= high_level:
+                    if plugged is False and high_battery_flag:
+                        notifier.close()
+                        high_battery_flag = False
 
-                if percentage < high_level:
+                    if plugged and high_battery_flag is False:
+                        notifier.show()
+                        high_battery_flag = True
+
+                else:
                     high_battery_flag = False
 
                 time.sleep(3)

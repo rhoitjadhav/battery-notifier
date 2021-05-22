@@ -4,7 +4,7 @@ import psutil
 
 class Battery:
     """
-    Batteru class is responsible for getting battery
+    Battery class is responsible for getting battery
     related information
     """
 

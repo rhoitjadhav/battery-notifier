@@ -1,9 +1,18 @@
+# Packages
 import psutil
 
 
 class Battery:
+    """
+    Batteru class is responsible for getting battery
+    related information
+    """
+
     @staticmethod
     def _sensors_battery():
+        """
+        Returns battery information
+        """
         return psutil.sensors_battery()
 
     def get_percentage(self) -> int:

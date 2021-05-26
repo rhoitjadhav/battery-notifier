@@ -1,8 +1,8 @@
 # Battery-Notifier
 
 This project aims to notify the user when the battery levels are below low and high. The ideal low and high battery
-levels are 40 and 80 respectively, so that user don't need to check the battery percentage whenever he/she wants, a user
-can simply rely on this application.
+levels are 40 and 80 respectively, so that user don't need to check the battery percentage, a user
+can simply rely on this application whenever battery is charged or at low levels.
 
 ## Requirements
 

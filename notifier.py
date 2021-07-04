@@ -22,10 +22,14 @@ class Notifier:
         notify2.init(self._app_name)
         self._notification = Notification(self._summary, self._message, self._icon)
 
-    def show(self) -> None:
+    def show(self, urgency_level: int = notify2.URGENCY_NORMAL) -> None:
         """
         Show notification bar
+
+        Args:
+            urgency_level: level of urgency (NORMAL, LOW, CRITICAL)
         """
+        self._notification.set_urgency(urgency_level)
         self._notification.show()
 
     def close(self) -> None:

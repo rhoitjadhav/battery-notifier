@@ -1,5 +1,6 @@
 # Packages
 import time
+from notify2 import URGENCY_CRITICAL
 
 # Modules
 from battery import Battery
@@ -50,7 +51,7 @@ class BatteryNotifier:
                         low_battery_flag = False
 
                     if plugged is False and low_battery_flag is False:
-                        notifier.show()
+                        notifier.show(URGENCY_CRITICAL)
                         low_battery_flag = True
                 else:
                     low_battery_flag = False
@@ -83,7 +84,7 @@ class BatteryNotifier:
                         high_battery_flag = False
 
                     if plugged and high_battery_flag is False:
-                        notifier.show()
+                        notifier.show(URGENCY_CRITICAL)
                         high_battery_flag = True
 
                 else:

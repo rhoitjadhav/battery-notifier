@@ -17,7 +17,7 @@ can simply rely on this application whenever battery is charged or at low levels
 notify2, dbus-python and other required packages which is defined in requirements.txt. Additionally, it will ask you for
 the permission to install the packages.
 
-Note: Before executing the `install.sh` script please make sure to go through the file and make necessary changes
+**Note:** Before executing the `install.sh` script please make sure to go through the file and make necessary changes
 according to your needs if any.
 
 ## Running Application
